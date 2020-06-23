@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="mobo.andro.apps.camera">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="android.permission.FLASHLIGHT"
+        android:permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+        android:protectionLevel="normal" />
+
+    <uses-sdk tools:overrideLibrary="com.jsibbold.zoomage" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/app_id"/>
+
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CollageMaker.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="mobo.andro.apps.camera.Camera.Gallery.ImageGalleryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="mobo.andro.apps.camera.CollageMaker.ImageGalleryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="mobo.andro.apps.camera.CollageMaker.CollageEditorActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="mobo.andro.apps.camera.CollageMaker.FreeCollageActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="mobo.andro.apps.camera.CollageMaker.GalleryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="mobo.andro.apps.camera.CollageMaker.ShareImageActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.irisstudio.demo.StickerGridActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TextLibNoActionBar" />
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.0.2"
+            tools:replace="android:value" />
+
+        <activity
+            android:name="mobo.andro.apps.camera.textmodule.TextActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        <activity
+            android:name="mobo.andro.apps.camera.editormodule.PhotoEditor"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorAppTheme" />
+        <activity
+            android:name="mobo.andro.apps.camera.editormodule.CBSSActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorAppTheme" />
+        <activity
+            android:name="mobo.andro.apps.camera.editormodule.CropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorAppTheme" />
+        <activity
+            android:name="mobo.andro.apps.camera.editormodule.OrientationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorAppTheme" />
+        <activity
+            android:name="mobo.andro.apps.camera.editormodule.EffectsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorAppTheme" />
+        <activity
+            android:name="mobo.andro.apps.camera.editormodule.OverlaysActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorAppTheme" />
+        <activity
+            android:name="mobo.andro.apps.camera.editormodule.FramesActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorAppTheme" />
+        <activity
+            android:name="mobo.andro.apps.camera.editormodule.BorderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EditorAppTheme" />
+        <activity
+            android:name=".Camera.CameraDemoActivity"
+            android:label="@string/title_activity_camera_demo"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1" />
+        <activity
+            android:name=".Camera.CameraGallery.Gallery"
+            android:label="Add media"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Camera.CameraGallery.OpenGallery"
+            android:label="Add media"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Camera.CameraGallery.OpenGalleryItem" />
+        <activity
+            android:name=".Camera.CameraGallery.PlayVideo"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Camera.CameraGallery.ShowImage"></activity>
+
+        <service android:name=".Broadcasting.NotifyService" />
+        <receiver android:name=".Broadcasting.NetworkChangeReceiver">
+
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+
+        </receiver>
+
+    </application>
+
+</manifest>
